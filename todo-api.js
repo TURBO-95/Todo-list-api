@@ -25,7 +25,7 @@ app.post("/todos", async (req, res) => {
 });
 
 // get all tasks
-app.post("/todos", async (req, res) => {
+app.get("/todos", async (req, res) => {
     try {
         const todos = await Todo.find();
         res.status(200).jason(todos);
@@ -35,7 +35,7 @@ app.post("/todos", async (req, res) => {
 });
 
 // update a task
-app.post("/todos", async (req, res) => {
+app.put("/todos", async (req, res) => {
     try {
         const todo = await Todo.findByIdAndUpdate(
             req.params.id,
@@ -49,7 +49,7 @@ app.post("/todos", async (req, res) => {
 });
 
 // delete a task
-app.post("/todos", async (req, res) => {
+app.delete("/todos", async (req, res) => {
     try {
         await Todo.findByIdAndDelete(req.params.id);
         res.status(204).jason({message: "Todo deleted successfully"});
