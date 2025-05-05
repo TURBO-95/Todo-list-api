@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3070
+EXPOSE 3000
 
 CMD ["node", "todo-api.js"]
